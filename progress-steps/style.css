@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root {
+    --line-border-fill: #3498db;
+    --line-border-empty: lightgray;
+}
+
+* {
+    box-sizing: border-box; /*padding, margin, border doesn't affect width?*/
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height:100vh;
+    overflow:hidden;
+    background-color: #f6f7fb;
+}
+
+button {
+    background-color: var(--line-border-fill);
+    padding: .6vw 2.3vw;
+    color:white;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-ui {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.3vw;
+    height:2.3vw;
+    border-radius: 50%;
+    border: 3px solid var(--line-border-empty);
+    color: darkgray;
+    background-color: white;
+    transition: 0.4s ease;
+}
+
+.completed-step {
+    border: 3px solid var(--line-border-fill);
+}
+
+.bar {
+    margin: auto 0;
+    height: 3px;
+    width: 6vw;
+    background-color: var(--line-border-empty);
+    transition: 0.4s ease;
+}
+
+.completed-bar {
+    background-color: var(--line-border-fill);
+}
+
+.disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}
