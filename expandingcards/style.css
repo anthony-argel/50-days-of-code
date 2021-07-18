@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box; /*padding, margin, border doesn't affect width?*/
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height:100vh;
+    overflow:hidden;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 20px;
+    flex:.5;
+    height: 90vh;
+    margin: 0 1vw;
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: flex 0.7s ease-in;
+}
+
+.overlay-text {
+    color:white;
+    display: none;
+}
+
+.selected-card {
+    flex: 6;
+}
+
+.selected-card .overlay-text {
+    display: flex;
+    margin-left: 2%;
+}
