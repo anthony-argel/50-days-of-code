@@ -1,5 +1,6 @@
 const body = document.body;
-let selectedCard;
+const container = document.createElement('div');
+container.classList.toggle('container');
 
 // data for each element to be shown
 // require only text and image
@@ -7,23 +8,23 @@ let selectedCard;
 const data = [
     {
         text:'text1',
-        src:'derek-lee-AVLUPF0ezPU-unsplash.jpg'
+        src:'photo-1480796927426-f609979314bd.jpg'
     },
     {
         text:'text2',
-        src:'erik-mclean-a8pYbjofZk0-unsplash.jpg'
+        src:'photo-1504109586057-7a2ae83d1338.jpg'
     },
     {
         text:'text3',
-        src:'kristin-wilson-z3htkdHUh5w-unsplash.jpg'
+        src:'photo-1528360983277-13d401cdc186.jpg'
     },
     {
         text:'text4',
-        src:'markus-spiske-ROWTOqLH5Mg-unsplash.jpg'
+        src:'photo-1626374292195-09d1f06d6ced.jpg'
     },
     {
         text:'text5',
-        src:'roman-kirienko-KzKRGrJ_xyo-unsplash.jpg'
+        src:'photo-1626539233615-3aab72e67b46.jpg'
     }
 ]
 
@@ -38,28 +39,30 @@ for(let i = 0; i < data.length; i++) {
     divTag.style.cssText += 'background-image: url(images/' + data[i].src + ');';
 
     // create text
-    pElement = document.createElement('p');
-    pElement.classList.toggle('overlay-text');
+    pElement = document.createElement('h3');
     pElement.textContent = data[i].text;
 
     if(i === 0) {
         divTag.classList.toggle('selected-card');
-        selectedCard = divTag;
     }
 
-    divTag.dataset.number = i;
-    divTag.addEventListener('click', e => expandDiv(e, i));
+    divTag.addEventListener('click', e => {
+        shrinkLastActiveDiv();
+        expandDiv(e, i);
+    });
     divTag.appendChild(pElement);
-    body.appendChild(divTag);
+    container.appendChild(divTag);
 }
+body.appendChild(container);
+
+
+const cards = document.querySelectorAll('.card');
 
 function expandDiv(e, number) {
     e.currentTarget.classList.toggle('selected-card');
-    shrinkDiv();
-    selectedCard = e.currentTarget;
 }
 
-function shrinkDiv() {
-    selectedCard.classList.toggle('selected-card');
-    //document.querySelector(`[data-number='${selectedCard}']`).classList.toggle('selected-card');
+function shrinkLastActiveDiv() {
+    cards.forEach(card => card.classList.remove('selected-card'));
+    
 }

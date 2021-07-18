@@ -15,30 +15,38 @@ body {
     overflow:hidden;
 }
 
+.container {
+    display: flex;
+    width: 90vw;
+}
+
 .card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 .3vw;
+    flex: 0.5;
+    transition: all 700ms ease-in;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    border-radius: 20px;
-    flex:.5;
-    height: 90vh;
-    margin: 0 1vw;
-    background-size:cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: flex 0.7s ease-in;
 }
 
-.overlay-text {
-    color:white;
+.card h3 {
+    margin-left: 2vw;
     display: none;
 }
 
-.selected-card {
-    flex: 6;
+.selected-card h3 {
+    display: block;
 }
 
-.selected-card .overlay-text {
-    display: flex;
-    margin-left: 2%;
+
+.selected-card {
+    flex: 5;
 }
+
